@@ -1,0 +1,17 @@
+{
+  "name": "spotify-mac-notifications",
+  "version": "0.0.0",
+  "description": "Add notifications for your Mac <3",
+  "main": "index.js",
+  "repository": "https://github.com/gjuchault/spotify-mac-notifications",
+  "author": "Gabriel JUCHAULT <gabriel.juchault@gmail.com>",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "download": "^6.2.5",
+    "node-notifier": "^5.2.1",
+    "opn": "^5.2.0",
+    "promptly": "^3.0.3",
+    "spotify-web-api-node": "github:thelinmichael/spotify-web-api-node"
+  }
+}
