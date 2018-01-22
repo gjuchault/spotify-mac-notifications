@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Spotify Mac Notifications</title>
+
+        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+        <style type="text/css">
+            body {
+                margin: 50px;
+
+                font-family: 'Roboto', sans-serif;
+                font-size: 24px;
+                text-align: center;
+                background-color: #efefef;
+                color: #222;
+            }
+
+            input {
+                box-sizing: border-box;
+                padding: 20px 30px;
+
+                font-size: 48px;
+                font-family: monospace;
+            }
+
+            button {
+                display: block;
+                margin: 30px auto;
+                padding: 10px 30px;
+
+                font-size: 36px;
+                border: 1px solid #cfcfcf;
+                border-radius: 3px;
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Spotify Mac Notifications</h1>
+        <p>This is the token to paste in the Spotify Mac Notifications tool.</p>
+        <input type="text" name="code" id="code">
+
+        <button id="copy">Copy</button>
+
+        <script type="text/javascript" defer>
+            const code = location.search
+                .substring(1)
+                .split('&')
+                .map(entry => entry.split('='))
+                .find(entry => entry[0] === 'code')
+
+            if (!code) {
+                alert('No access token passed to callback')
+            }
+
+            const codeInput = document.querySelector('#code')
+            const copyButton = document.querySelector('#copy')
+
+            codeInput.value = code[1]
+
+            codeInput.onfocus = () => {
+                codeInput.select()
+            }
+
+            codeInput.focus()
+
+            copyButton.onclick = () => {
+                codeInput.select()
+                document.execCommand('copy')
+
+                copyButton.innerText = 'Copied !'
+
+                setTimeout(() => {
+                    copyButton.innerText = 'Copy'
+                }, 1200)
+            }
+        </script>
+    </body>
+</html>
